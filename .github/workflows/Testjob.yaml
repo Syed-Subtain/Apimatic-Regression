@@ -1,0 +1,16 @@
+ on: 
+  Workflow_dispatch:
+  push:
+    branches: [ main ]
+ jobs:
+    Run-Cypress_test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: cypress-io/github-action@v3
+          with: 
+            browser: chrome
+            record: true
+          env:
+            CYPRESS_baseUrl: https://app-apimaticio-test-eus.azurewebsites.net/
+            CYPRESS_RECORD_KEY: 8fca8292-42da-454e-acc7-00ce91f61078         
